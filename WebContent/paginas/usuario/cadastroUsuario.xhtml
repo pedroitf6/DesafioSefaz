@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets" >
+	
+	<ui:composition template="/templatePrincipal.xhtml">
+		<ui:define name="cabecalho">
+			<h1 align="center" style="background-color: lightblue; color: darkblue;">Cadastro de Usuario</h1>
+		</ui:define>
+		<ui:define name="conteudo">
+			<p:growl id="growl" showDetail="true" sticky="true" />
+			<p:panelGrid columns="2" style="width: 100%; margin-top:10px;">				
+				<p:outputLabel value="Nome: " style="color: black; font-weight: bold "/>
+				<p:inputText value="#{UsuarioBean.usuario.nome}" style="margin-left:10px" />
+				<p:outputLabel value="Email: " style="color: black; font-weight: bold "/>
+				<p:inputText value="#{UsuarioBean.usuario.email}" style="margin-left:10px" />
+				<p:outputLabel value="Senha:  " style="color: black; font-weight: bold "/>
+				<p:password value="#{UsuarioBean.usuario.senha}" style="margin-left:10px" />
+			</p:panelGrid>
+			<p:fieldset legend="Telefone">
+				<p:panelGrid columns="6" style="width: 100%; margin-top:10px;">
+					<p:outputLabel value="DDD: " style="color: black; font-weight: bold "/>
+					<p:inputText value="#{UsuarioBean.usuario.telefone.ddd}" style="margin-left:10px" />
+					<p:outputLabel value="Numero: " style="color: black; font-weight: bold "/>
+					<p:inputMask mask="99999-9999" value="#{UsuarioBean.usuario.telefone.numero}" style="margin-left:10px" />
+					<p:outputLabel value="Tipo: " style="color: black; font-weight: bold "/>
+					<p:inputText value="#{UsuarioBean.usuario.telefone.tipo}" style="margin-left:10px" />
+				</p:panelGrid>
+			</p:fieldset>
+			<p:panelGrid columns="1" style="width: 100%; margin-top:10px">
+				<p:commandButton value="SALVAR" style="color: darkblue" actionListener="#{UsuarioBean.salvarUsuario}" 
+					update="@form" /> 
+			</p:panelGrid>
+		</ui:define>
+	</ui:composition>
+</html>

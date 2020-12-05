@@ -1,0 +1,8 @@
+util\TesteConexao.class
+controle\LoginBean.class
+entidade\Telefone.class
+controle\UsuarioBean.class
+dao\UsuarioDAO.class
+dao\UsuarioDAOImpl.class
+entidade\Usuario.class
+util\JdbcUtil.class
